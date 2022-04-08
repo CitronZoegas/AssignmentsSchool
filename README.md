@@ -1,3 +1,3 @@
 # AssignmentsSchool
-School Assignments
-Basically 5 of my school assignments
+
+Basically 5 of my school assignments where i practiced the use of threads.
