@@ -21,16 +21,16 @@ public class Producer extends Thread {
     }
     public synchronized void startProd(){
 
-        if(producerCheck == false){
+        if(!producerCheck){
             producerCheck = true;
         }
     }
     public void stopProd() {
-        if(producerCheck == true){
+        if(producerCheck){
             producerCheck = false;
         }
     }
-    public void randomItem(FoodItem[] defaultFoodItems) throws InterruptedException {
+    public void randomItemToBuffer(FoodItem[] defaultFoodItems) throws InterruptedException {
         Random rng = new Random();
         int i = rng.nextInt(defaultFoodItems.length);
         threading.prodItemToBuffer(defaultFoodItems[i]);
@@ -49,7 +49,7 @@ public class Producer extends Thread {
             }
             if(producerCheck){
                 try{
-                    randomItem(foodItems);//Callar på threading med ett index till ett slumpvald föremål från "randomItem" metoden i FoodItem listan
+                    randomItemToBuffer(foodItems);//Callar på threading med ett index till ett slumpvald föremål från "randomItem" metoden i FoodItem listan
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

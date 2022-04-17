@@ -436,7 +436,7 @@ public class GUI {
             }
             if(e.getSource() == btnStartA){
                 threading.startProd(2);
-                threading.startProd(1);
+                //threading.startProd(1);
                 btnStartA.setEnabled(false);
                 btnStopA.setEnabled(true);
                 lblStatusA.setText("Running...");
@@ -444,7 +444,7 @@ public class GUI {
             }
             if(e.getSource() == btnStartX){
                 threading.startProd(3);
-                threading.startProd(1);
+                //threading.startProd(1);
                 btnStartX.setEnabled(false);
                 btnStopX.setEnabled(true);
                 lblStatusX.setText("Running...");

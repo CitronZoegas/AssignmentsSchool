@@ -78,9 +78,7 @@ public class MainPanel extends JPanel {
 
     }
     public void insertText(String text) {
-
         taDest.append(text);
-        System.out.println(text + " insert");
 
     }
 

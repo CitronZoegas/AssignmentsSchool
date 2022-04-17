@@ -17,7 +17,7 @@ public class Threading {
     public Threading() {
         gui = new GUI(this);
         fooditem = new FoodItem(0,0,null);
-        foodItemsInStore = new Buffer<FoodItem>(maxLimits.getMaxItems());
+        foodItemsInStore = new Buffer<>();
 
         PThread1 = new Producer(this,"SCAN",fooditem.everyFoodItem());
         PThread2 = new Producer(this,"ARLA",fooditem.everyFoodItem());
@@ -59,18 +59,15 @@ public class Threading {
     public FoodItem takeItemFromBuffer() throws InterruptedException {
         return foodItemsInStore.takeItemOutOfBuffer();
     }
-
     public void prodItemToBuffer(FoodItem fooditem) throws InterruptedException {
         foodItemsInStore.putItemToBuffer(fooditem);
         gui.setSizeToBuffer(foodItemsInStore.bufferSize());
     }
-
-    public void insertItemToBuffer(FoodItem fooditem) throws InterruptedException {
+    /*public void insertItemToBuffer(FoodItem fooditem) throws InterruptedException {
         foodItemsInStore.putItemToBuffer(fooditem);
         gui.setSizeToBuffer(foodItemsInStore.bufferSize());
-    }
+    }*/
     public void lblHandler( String name, int fooditems, double volume, double weight,String foodItemName) {
-        System.out.println("labelhandler");
         gui.updateLabelValues(name, fooditems,volume,weight, foodItemName);
     }
 }

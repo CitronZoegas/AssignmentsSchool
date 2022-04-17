@@ -20,55 +20,45 @@ public class Consumer extends Thread {
         this.threading = threading;
         this.consumerName = consumerName;
         this.maxLimits = maxLimits;
-
-
-
+        setName(consumerName);
+        start();
     }
 
     public synchronized void startCons(){
+        continueCheck = true;
 
-        if(continueCheck == false){
-            continueCheck = true;
-            start();
-        }
     }
     public void stopCons() {
-        if(continueCheck == true){
-            continueCheck = false;
-        }
+        continueCheck = false;
     }
-
-
     @Override
     public void run() {
-
         while (true) {
 
             try{
                 Thread.sleep(2000);
 
-                FoodItem fooditem = threading.takeItemFromBuffer();
-                consumerList = new ArrayList<FoodItem>();
-                while (currentItems < maxLimits.getMaxItems()
+                consumerList = new ArrayList<>();
+                while      (currentItems < maxLimits.getMaxItems()
                         || (currentWeight < maxLimits.getMaxWeight())
                         || (currentVolume < maxLimits.getMaxVolume())) {
 
+
                     synchronized (this) {
 
-                        while (continueCheck = true) {
+                        while (continueCheck) {
                             Thread.sleep(2000);
-
+                            FoodItem fooditem = threading.takeItemFromBuffer();
 
                             //Managing the integers for each item
                             if(fooditem != null) {
                                 consumerList.add(fooditem);
                                 currentWeight += fooditem.getWeight();
                                 currentVolume += fooditem.getVolume();
-                                fooditem.getName();
                                 currentItems++;
-                                System.out.println(currentItems + "Current items consumed");
-                                System.out.println(fooditem.getName());
-                                threading.lblHandler(Thread.currentThread().getName(), currentItems, currentVolume, currentVolume, fooditem.getName());
+                                //System.out.println(currentItems + " Current items consumed");
+                                //System.out.println(fooditem.getName());
+                                threading.lblHandler(getName(), currentItems, currentVolume, currentVolume, fooditem.getName());
                             }
                         }
                     }

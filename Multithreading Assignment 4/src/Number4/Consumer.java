@@ -15,14 +15,11 @@ public class Consumer extends Thread {
         this.replacement = replacement;
         textInFile = "";
         start();
-
     }
-
     @Override
     public void run() {
         try {
             while(true) {
-
                 for (int i = 0; i < length; i++) {
                     StringBuilder sb = new StringBuilder();
                     textInFile += sb;
