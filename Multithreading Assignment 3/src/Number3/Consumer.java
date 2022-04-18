@@ -55,8 +55,8 @@ public class Consumer extends Thread {
                         || (currentWeight < maxLimits.getMaxWeight())
                         || (currentVolume < maxLimits.getMaxVolume())) {
 
-
                         synchronized (this){
+
 
                         while (continueCheck) {
                             try{
