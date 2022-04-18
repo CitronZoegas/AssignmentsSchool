@@ -56,10 +56,11 @@ public class Threading {
             case 3 -> CThread6.stopCons();
         }
     }
-    public FoodItem takeItemFromBuffer() throws InterruptedException {
+    public FoodItem takeItemFromBuffer()  {
+        gui.setSizeToBuffer(foodItemsInStore.bufferSize());
         return foodItemsInStore.takeItemOutOfBuffer();
     }
-    public void prodItemToBuffer(FoodItem fooditem) throws InterruptedException {
+    public void prodItemToBuffer(FoodItem fooditem) {
         foodItemsInStore.putItemToBuffer(fooditem);
         gui.setSizeToBuffer(foodItemsInStore.bufferSize());
     }
@@ -67,7 +68,7 @@ public class Threading {
         foodItemsInStore.putItemToBuffer(fooditem);
         gui.setSizeToBuffer(foodItemsInStore.bufferSize());
     }*/
-    public void lblHandler( String name, int fooditems, double volume, double weight,String foodItemName) {
+    public void lblHandler(String name, int fooditems, double volume, double weight,String foodItemName) {
         gui.updateLabelValues(name, fooditems,volume,weight, foodItemName);
     }
 }

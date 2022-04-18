@@ -46,7 +46,7 @@ public class Controller {
      */
     public void execute(JTextArea target, String[] lines, String find, String replace) {
         buffer = new SharedBuffer(5, find, replace);
-        System.out.println(target.getText() + "execute");
+        System.out.println(target.getText() + " execute");
         reader = new Thread(new Consumer(this, buffer, lines.length, target.getText()), "Reader");
         writer = new Thread(new Producer( buffer, lines),"Writer");
         modifier = new Thread(new Modifier(buffer, lines.length),"Modifier");

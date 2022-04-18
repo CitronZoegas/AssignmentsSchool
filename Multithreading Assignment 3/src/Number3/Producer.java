@@ -19,7 +19,7 @@ public class Producer extends Thread {
         this.name = name;
         start();
     }
-    public synchronized void startProd(){
+    public void startProd(){
 
         if(!producerCheck){
             producerCheck = true;
@@ -32,16 +32,14 @@ public class Producer extends Thread {
     }
     public void randomItemToBuffer(FoodItem[] defaultFoodItems) throws InterruptedException {
         Random rng = new Random();
+        System.out.println(rng);
         int i = rng.nextInt(defaultFoodItems.length);
         threading.prodItemToBuffer(defaultFoodItems[i]);
     }
 
     @Override
     public void run() {
-        System.out.println("Run method");
-
         while(true){
-
             try{
                 Thread.sleep(2000);
             } catch (Exception e) {

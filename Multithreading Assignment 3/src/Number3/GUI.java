@@ -351,13 +351,12 @@ public class GUI {
         btnStartX.addActionListener(listener);
         btnStopX.addActionListener(listener);
     }
-
+    //VARFÖR FUNGERAR INGENENTNNTNTNTTNING KORREKT
     public void setSizeToBuffer(int index) {
         bufferStatus.setValue(index);
     }
 
     public void updateLabelValues( String threadName, int fooditem, double volume, double weight, String FoodItemName) {
-        //System.out.println("Name: "+threadName +" Volume: " +  volume +"Weight: "+ weight + "Fooditem: "+fooditem);
         switch(threadName){
             case "Thread-3"://CITY GROSS
                 lblCGItems.setText("" + fooditem);

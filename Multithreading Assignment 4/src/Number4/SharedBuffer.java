@@ -69,7 +69,7 @@ public class SharedBuffer {
                 e.printStackTrace();
             }
         }
-        System.out.println(findDifference + replaceString);
+        System.out.println(findDifference +" "+ replaceString);
 
         maxSize[findPos] = maxSize[findPos].replace(findDifference, replaceString);
         status[findPos] = Status.CHECKED;

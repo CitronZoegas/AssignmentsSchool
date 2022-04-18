@@ -60,7 +60,7 @@ public class MainPanel extends JPanel {
 
         pnlDest.add(lblDest, BorderLayout.NORTH);
         pnlDest.add(spDest, BorderLayout.CENTER);
-        taDest.append("lololol");
+
 
         pnlSourceDest.add(pnlSource);
         pnlSourceDest.add(pnlDest);
@@ -74,8 +74,6 @@ public class MainPanel extends JPanel {
         pnlButtons.add(btnLoadFile);
         pnlButtons.add(btnFindReplace);
         add(pnlButtons, BorderLayout.SOUTH);
-
-
     }
     public void insertText(String text) {
         taDest.append(text);
@@ -87,6 +85,7 @@ public class MainPanel extends JPanel {
         public void actionPerformed(ActionEvent e){
 
             if(e.getSource() == btnLoadFile){
+
                 onLoadFile();
             }
             if(e.getSource() == btnFindReplace){
